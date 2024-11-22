@@ -1,58 +1,74 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>perfil alternativo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initialscale=1.0">
+        <title>Perfil Interativo</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body class="bg-light">
 
     <div class="container mt-5">
         <div class="card" id="profileCard">
             <div class="card-body text-center">
-                <img scr="https://via.placeholder.com/150" alt="imagem de perfil" id="prodileImagem" class="rounded-circle mb-3" style="width: 150px;" >
-                <h3 id="profileName">Nome: Meu perfil </h3>
-                <p id="profileAge">Idade:18</p>
+                <img src="https://via.placeholder.com/150" alt="Imagem de Perfil" id="profileImage" class="rounded-circle mb-3" style="width:150px;">
+                <h3 id="profileName">Nome: Meu Perfil</h3>
+                <p id="profileAge">Idade: 18</p>
 
-                <h5>Hobbies: </h5>
-                <ul id="HobbiesList" class="list-group mb-3">
+                <h5>Hobbies</h5>
+                <ul id="hobbiesList" class="list-group mb-3">
                     <li class="list-group-item">Leitura</li>
                     <li class="list-group-item">Esportes</li>
                     <li class="list-group-item">Música</li>
                 </ul>
-
-                <button class="btn btn-primary me-2" onlick="alterarNome()"> ALterar Nome</button>
-                <button class="btn btn-sucess me-2" onlick="adicionarHobby()"> Adicionar  Hobby</button>
-                <button class="btn btn-warning me-2" onlick="mudarCorDeFundo()"> Mudar Cor de Fundo</button>
-
-                </div>
-             </div>
-        </div> 
+                <button class="btn btn-primary me-2" onclick="alterarNome()">Alterar Nome</button>
+                <button class="btn btn-success me-2" onclick="adicionarHobby()">Adicionar Hobby</button>
+                <button class="btn btn-warning me-2" onclick="mudarCorDeFundo()">Mudar Cor de Fundo</button>
+                <button class="btn btn-primary me-2" onclick="editarFotoPerfil()">Editar Foto de Perfil </button>
+                <button class="btn btn-primary me-2" onclick="alterarIdade()">Alterar Idade</button>
+            </div>
+        </div>
     </div>
-
     <script>
         function alterarNome(){
-            const noveNome=prompt("Digite o novo nome: ");
-            if(novo Nome){
-                document.getElementById("profileName")-textContent="Nome:" + noveNome
+            const novoNome=prompt("Digite o novo nome: ");
+            if(novoNome){
+                document.getElementById("profileName").textContent="Nome: " + novoNome;
             }
         }
-    Function adicionarHobby(){
-        const novoHobby =prompt("Digite um novo Hobbie");
-        if(novoHobby){
-        const li=document.createElement(li);
-        li-textContent=novoHobby;
-        li-ClassName="list-group-item";
-        document.getElementById("hobbiesList").appendChild(li);
-        }
-    }
 
-    function mudarCorDeFundo(){
-        const cores=["#f8d7da", "#d1rcf1", "#d4edda", "#fff3cd", "#cce5ff"];
-        const corAleatoria=cores[Math.floor(math.random() * coreslength)];
-    }
+        function alterarIdade(){
+            const novaIdade=prompt("Digite sua idade: ");
+            if(novaIdade){
+                document.getElementById("profileAge").textContent="Idade: " + novaIdade;
+            }
+        }
+
+        function adicionarHobby(){
+            const novoHobby = prompt("Digite um novo hobby: ");
+            if(novoHobby){
+                const li = document.createElement("li");
+                li.textContent= novoHobby;
+                li.className="list-group-item";
+                document.getElementById("hobbiesList").appendChild(li);
+            }
+        }
+        function mudarCorDeFundo(){
+            const cores = ["#f8d7da","#d1ecf1", "#d4edda", "#fff3cd", "#cce5ff"];
+            const corAleatoria = cores[Math.floor(Math.random() * cores.length)];
+            document.getElementById("profileCard").style.backgroundColor= corAleatoria;
+        }
+
+        function editarFotoPerfil(){
+            const fotonova = prompt ("Digite a URL da nova foto de perfil: ");
+            if (fotonova){
+                document.getElementById("profileImage").src = fotonova;
+            }   
+
+
+
+        }
     </script>
-    
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>
